@@ -1,1 +1,67 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedCoDi-M: Multimodal Medical Data Generation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin: 30px 0;
+        }
+        .button {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            margin: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MedCoDi-M: Multimodal Medical Data Generation</h1>
+        <p>
+            MedCoDi-M is a novel multimodal model for medical data generation. It utilizes contrastive
+            learning and modular training to enable any-to-any generation across medical data modalities,
+            addressing challenges in data scarcity, privacy, and multimodal integration.
+        </p>
+        <img src="Model.pdf" alt="MedCoDi-M Model Diagram">
+        <div class="buttons">
+            <a href="https://huggingface.co/spaces/dmolino/MedCoDi-M" class="button"><i class="fas fa-vial"></i> Demo on HuggingFace</a>
+            <a href="https://github.com/danielemolino/MedCoDi-M" class="button"><i class="fab fa-github"></i> GitHub Repository</a>
+        </div>
+    </div>
+</body>
+</html>
