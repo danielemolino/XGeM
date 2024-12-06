@@ -1,0 +1,30 @@
+per_gpu_train_batch_size : 64 # 128 exeeds GPU memory
+per_gpu_eval_batch_size : 128 # not used in CLIP training
+n_gpu : 4
+num_workers : 4 # number of workers for data loading
+num_train_epochs : 100 # number of epochs to train
+
+name : 'VAE-Training-Prova1' # name of the experiment
+save_steps_epochs : 10
+dataset : 'csv/train_short_clean.csv' # dataset to train on
+
+gradient_accumulation_steps : 1 # Number of updates steps to accumulate before backward
+
+logging_steps : 100 #  log every this steps
+save_steps : 0 # 1000 steps take 1 hour with 4 GTX1080 GPUs and batch size = 256 (64 per GPU)
+
+saved_checkpoints : 'Report_Training/saved_checkpoints/VAE' # path1 to save checkpoints
+logs : 'Report_Training/logs' # path1 to save logs
+
+clip_weights : 'Clip_Training/saved_checkpoints/DirtyData-20Ep-5e^-5/checkpoint_19_epoch_DirtyData-20Ep-5e^-5.pt'
+
+optimizer:
+  params:
+    eps: 1.0e-08
+    lr: 5e-5
+    weight_decay: 1e-4
+  type: AdamW
+
+mlm : False
+max_grad_norm : 1.0
+use_deterministic_connect : False

@@ -1,0 +1,37 @@
+per_gpu_train_batch_size : 32 # 128 exeeds GPU memory
+per_gpu_eval_batch_size : 128 # not used in CLIP training
+n_gpu : 4
+num_workers : 4 # number of workers for data loading
+num_train_epochs : 50 # number of epochs to train
+
+name : 'Training-EnvEnc-T+Lfreezed+Contrastive-Loss' # name of the experiment
+save_steps_epochs : 10
+dataset : 'csv/train_short_frontal_clean.csv' # dataset to train on
+
+gradient_accumulation_steps : 1 # Number of updates steps to accumulate before backward
+
+logging_steps : 100 #  log every this steps
+save_steps : 0 # 1000 steps take 1 hour with 4 GTX1080 GPUs and batch size = 256 (64 per GPU)
+
+saved_checkpoints : '../../../snic2022-5-277/dmolino/EnvEnc_Training/saved_checkpoints' # path1 to save checkpoints
+logs : 'EnvEnc_Training/logs' # path1 to save logs
+
+clip_weights : 'Clip_Training/saved_checkpoints/Training_Clip_5e^-5/checkpoint_29_epoch_Training_Clip_5e^-5.pt'
+frontal_weights : '/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/CXR_Training/saved_checkpoints/Frontal/checkpoint_99_epoch_Training-Frontal-MultiPrompt-New.pt'
+lateral_weights : '/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/CXR_Training/saved_checkpoints/Lateral/checkpoint_99_epoch_Training-Lateral-MultiPrompt-New.pt'
+text_weights : '/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/Report_Training/saved_checkpoints/checkpoint_99_epoch_Report_Diffusion_Training-MultiPrompt-New.pt'
+optimus_weights : 'Report_Training/saved_checkpoints/VAE/checkpoint_99_epoch_VAE-Training-Prova1.pt'
+
+load_envenc : True
+
+optimizer:
+  params:
+    eps: 1.0e-08
+    lr: 5e-5
+    weight_decay: 1e-4
+  type: AdamW
+
+text_emb : False
+frontal_emb : True
+lateral_emb : False
+view: 'lateral'

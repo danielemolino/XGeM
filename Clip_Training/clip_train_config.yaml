@@ -1,0 +1,24 @@
+per_gpu_train_batch_size : 128 # 128 exeeds GPU memory
+per_gpu_eval_batch_size : 128 # not used in CLIP training
+n_gpu : 4
+num_workers : 4 # number of workers for data loading
+num_train_epochs : 30 # number of epochs to train
+
+name : 'CLIP-T+F-CapireSeVaBene' # name of the experiment
+save_steps_epochs : 100
+dataset : 'csv/train.csv' # dataset to train on
+
+gradient_accumulation_steps : 1 # Number of updates steps to accumulate before backward
+
+logging_steps : 50 #  log every this steps
+save_steps : 0 # 1000 steps take 1 hour with 4 GTX1080 GPUs and batch size = 256 (64 per GPU)
+
+saved_checkpoints : 'Clip_Training/saved_checkpoints' # path1 to save checkpoints
+logs : 'Clip_Training/logs' # path1 to save logs
+
+optimizer:
+  params:
+    eps: 1.0e-08
+    lr: 5e-5
+    weight_decay: 1e-4
+  type: AdamW
