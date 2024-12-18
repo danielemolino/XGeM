@@ -38,8 +38,7 @@ def main():
 
     # Load the model
     model_load_paths = ['CoDi_encoders.pth']
-    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='checkpoints/', pth=model_load_paths,
-                                    fp16=False)
+    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/checkpoints', pth=model_load_paths)
 
     clip = inference_tester.net.clip
     clip = clip.to(config.device)
@@ -57,7 +56,7 @@ def main():
     csv['report'] = csv['report'].str.lower()
     csv['report'] = csv['report'].str.strip()
 
-    dataset = MIMIC_CXR_Dataset(csv, '256/')
+    dataset = MIMIC_CXR_Dataset(csv, '/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/MIMIC/')
     dataloader = DataLoader(dataset, batch_size=config.per_gpu_train_batch_size, shuffle=True)
 
     # Now training

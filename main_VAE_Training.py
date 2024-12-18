@@ -39,8 +39,7 @@ def main():
 
     # Load the model
     model_load_paths = ['CoDi_encoders.pth', 'CoDi_video_diffuser_8frames.pth']
-    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='checkpoints/', pth=model_load_paths,
-                                    fp16=False)
+    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/checkpoints', pth=model_load_paths, fp16=False)
     codi = inference_tester.net
     optimus = codi.optimus
     del inference_tester, codi
@@ -64,4 +63,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

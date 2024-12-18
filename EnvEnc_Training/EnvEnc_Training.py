@@ -64,15 +64,15 @@ def train(config, dataloader, model, logger, text_emb=False):
 
     if config.n_gpu > 1:
         model = torch.nn.DataParallel(model)
-        blocks_to_update = [model.module.model.diffusion_model.unet_frontal.connecters_out,
-                            # model.module.model.diffusion_model.unet_text.connecters_out,
-                            model.module.model.diffusion_model.unet_lateral.connecters_out,
-                            model.module.model.diffusion_model.unet_frontal.input_block_connecters_in,
-                            # model.module.model.diffusion_model.unet_text.input_block_connecters_in,
-                            model.module.model.diffusion_model.unet_lateral.input_block_connecters_in,
-                            model.module.model.diffusion_model.unet_frontal.output_block_connecters_in,
-                            # model.module.model.diffusion_model.unet_text.output_block_connecters_in,
-                            model.module.model.diffusion_model.unet_lateral.output_block_connecters_in]
+        blocks_to_update = [# model.module.model.diffusion_model.unet_frontal.connecters_out,
+                            model.module.model.diffusion_model.unet_text.connecters_out,
+                            # model.module.model.diffusion_model.unet_lateral.connecters_out,
+                            # model.module.model.diffusion_model.unet_frontal.input_block_connecters_in,
+                            model.module.model.diffusion_model.unet_text.input_block_connecters_in,
+                            # model.module.model.diffusion_model.unet_lateral.input_block_connecters_in,
+                            # model.module.model.diffusion_model.unet_frontal.output_block_connecters_in,
+                            model.module.model.diffusion_model.unet_text.output_block_connecters_in]
+                            # model.module.model.diffusion_model.unet_lateral.output_block_connecters_in]
 
     model = model.to(torch.device(config.device))
 

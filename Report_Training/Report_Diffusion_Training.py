@@ -108,11 +108,11 @@ def train(config, dataloader, model, logger):
             print(text_features.shape)
             print(image_features.shape)
             if config.n_gpu == 1:
-                loss = model(x=[text_features], c=[image_features],  xtype=['text'], ctype=['image'])
+                loss = model(x=[text_features], c=[image_features],  xtype=['text'], ctype=['frontal'])
             elif config.n_gpu > 1:
-                loss = model.module(x=[text_features], c=[image_features], xtype=['text'], ctype=['image'])
+                loss = model.module(x=[text_features], c=[image_features], xtype=['text'], ctype=['frontal'])
             else:
-                loss = model(x=[text_features], c=[image_features], xtype=['text'], ctype=['image'])
+                loss = model(x=[text_features], c=[image_features], xtype=['text'], ctype=['frontal'])
 
             if config.gradient_accumulation_steps > 1:
                 loss = loss / config.gradient_accumulation_steps
