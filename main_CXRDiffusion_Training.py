@@ -38,7 +38,8 @@ def main():
 
     # Load the model
     model_load_paths = ['CoDi_encoders.pth', 'CoDi_video_diffuser_8frames.pth']
-    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/checkpoints', pth=model_load_paths)
+    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='checkpoints/', pth=model_load_paths,
+                                    fp16=False)
     codi = inference_tester.net
     codi.optimus = None
     codi.clip.load_state_dict(torch.load(config.clip_weights, map_location=device))
@@ -50,12 +51,12 @@ def main():
     path_to_csv = config.dataset
     csv = pd.read_csv(path_to_csv)
     if not config.multi_prompt:
-        dataset = MIMIC_CXR_Dataset(csv, root_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/MIMIC/')
+        dataset = MIMIC_CXR_Dataset(csv, '256/')
     else:
         other_view = 'frontal' if config.view == 'lateral' else 'lateral'
         text_embeddings = np.load('embeddings/text_embeddings.npy')
         image_embeddings = np.load(f'embeddings/{config.view}_embeddings.npy')
-        dataset = MultiPrompt_MIMIC_CXR_Dataset(csv, root_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/MIMIC/', view=config.view, text_embeddings=text_embeddings, image_embeddings=image_embeddings)
+        dataset = MultiPrompt_MIMIC_CXR_Dataset(csv, root_dir='256/', view=config.view, text_embeddings=text_embeddings, image_embeddings=image_embeddings)
     dataloader = DataLoader(dataset, batch_size=config.per_gpu_train_batch_size, shuffle=True)
 
     # Now training

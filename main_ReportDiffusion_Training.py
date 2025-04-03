@@ -38,7 +38,8 @@ def main():
 
     # Load the model
     model_load_paths = ['CoDi_encoders.pth', 'CoDi_text_diffuser.pth']
-    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/checkpoints', pth=model_load_paths)
+    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', load_weights=True, data_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/checkpoints', pth=model_load_paths,
+                                    fp16=False)
     codi = inference_tester.net
     codi.autokl = None
     codi.clip.load_state_dict(torch.load(config.clip_weights, map_location=device))

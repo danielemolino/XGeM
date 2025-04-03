@@ -8,9 +8,10 @@ import tifffile
 
 
 class MIMIC_CXR_Dataset(Dataset):
-    def __init__(self, csv, root_dir):
+    def __init__(self, csv, root_dir, report_type):
         self.csv = csv
         self.root_dir = root_dir
+        self.report_type = report_type
 
     def __len__(self):
         return len(self.csv)
@@ -20,7 +21,7 @@ class MIMIC_CXR_Dataset(Dataset):
         path = row['path'][:-4] + '.tiff'
         image_path = os.path.join(self.root_dir, path)
         image = tifffile.imread(image_path)
-        text = row['report']
+        text = row[self.report_type]
         subject_id = np.array(row['subject_id'])
         study_id = np.array(row['study_id'])
         path = row['path']
