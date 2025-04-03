@@ -8,22 +8,23 @@ import tifffile
 
 
 class MIMIC_CXR_Dataset(Dataset):
-    def __init__(self, csv, root_dir):
+    def __init__(self, csv, root_dir, report_type):
         self.csv = csv
         self.root_dir = root_dir
+        self.report_type = report_type
 
     def __len__(self):
         return len(self.csv)
 
     def __getitem__(self, idx):
         row = self.csv.iloc[idx]
-        path = row['path1'][:-4] + '.tiff'
+        path = row['path'][:-4] + '.tiff'
         image_path = os.path.join(self.root_dir, path)
         image = tifffile.imread(image_path)
-        text = row['report']
+        text = row[self.report_type]
         subject_id = np.array(row['subject_id'])
         study_id = np.array(row['study_id'])
-        path = row['path1']
+        path = row['path']
         return image, text, subject_id, study_id, path
 
 
@@ -94,7 +95,7 @@ class MultiPrompt_MIMIC_CXR_Dataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.csv.iloc[idx]
-        path = row['path1'][:-4] + '.tiff'
+        path = row['path'][:-4] + '.tiff'
         study_id = row['study_id']
 
         if self.report_gen:
@@ -130,19 +131,19 @@ class MultiPromptGenerator(Dataset):
 
     def __getitem__(self, idx):
         row = self.csv.iloc[idx]
-        path = row['path1'][:-4] + '.tiff'
+        path = row['path'][:-4] + '.tiff'
         image_path = os.path.join(self.root_dir, path)
         image = tifffile.imread(image_path)
         text = row['report']
         subject_id = np.array(row['subject_id'])
         study_id = np.array(row['study_id'])
         dicom_id = row['dicom_id']
-        path = row['path1']
+        path = row['path']
         # Carichiamo anche un'immagine dell'altra vista
         other_row = self.other_csv.loc[self.other_csv.study_id == study_id]
         # Potrebbero esserne più di una, prendiamone una a caso
         other_row = other_row.iloc[np.random.randint(len(other_row))]
-        other_path = other_row['path1'][:-4] + '.tiff'
+        other_path = other_row['path'][:-4] + '.tiff'
         other_image_path = os.path.join(self.root_dir, other_path)
         other_image = tifffile.imread(other_image_path)
         if self.text_embeddings is not None:

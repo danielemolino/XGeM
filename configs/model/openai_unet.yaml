@@ -65,4 +65,4 @@ openai_unet_MedCoDi_M:
     unet_frontal_cfg: MODEL(openai_unet_2d)
     unet_lateral_cfg: MODEL(openai_unet_2d)
     unet_text_cfg: MODEL(openai_unet_0dmd)
-    model_type: ['frontal', 'lateral', 'text']
+    model_type: ['text', 'lateral', 'frontal']

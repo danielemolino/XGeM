@@ -38,7 +38,7 @@ def main():
 
     # Load the model (Questa volta usiamo il mio modello perchè ho bisogno di avere frontal lateral e text
     model_load_paths = ['CoDi_encoders.pth', 'CoDi_video_diffuser_8frames.pth']
-    inference_tester = MedCoDi_M_wrapper(model='MedCoDi-M', data_dir='checkpoints/', pth=model_load_paths, load_weights=True)  # turn on fp16=True if loading fp16 weights
+    inference_tester = MedCoDi_M_wrapper(model='MedCoDi_M', data_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/checkpoints', pth=model_load_paths, load_weights=True)  # turn on fp16=True if loading fp16 weights
 
     codi = inference_tester.net
     del inference_tester
@@ -122,7 +122,7 @@ def main():
         lateral_embeddings = np.load('embeddings/lateral_embeddings.npy')
     else:
         lateral_embeddings = None
-    dataset = MultiPromptGenerator(csv, root_dir='256/', view=config.view, text_embeddings=text_embeddings, frontal_embeddings=frontal_embeddings, lateral_embeddings=lateral_embeddings, train=True)
+    dataset = MultiPromptGenerator(csv, root_dir='/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/MIMIC/', view=config.view, text_embeddings=text_embeddings, frontal_embeddings=frontal_embeddings, lateral_embeddings=lateral_embeddings, train=True)
     dataloader = DataLoader(dataset, batch_size=config.per_gpu_train_batch_size, shuffle=True)
 
     # Now training

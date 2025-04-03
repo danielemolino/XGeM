@@ -4,7 +4,7 @@ n_gpu : 4
 num_workers : 4 # number of workers for data loading
 num_train_epochs : 100 # number of epochs to train
 
-name : 'Report_Diffusion_Training-MultiPrompt-New' # name of the experiment
+name : 'Prova' # name of the experiment
 save_steps_epochs : 10
 dataset : 'csv/train_short_frontal_clean.csv' # dataset to train on
 
@@ -16,8 +16,8 @@ save_steps : 0 # 1000 steps take 1 hour with 4 GTX1080 GPUs and batch size = 256
 saved_checkpoints : '../../../snic2022-5-277/dmolino/Report_Training/saved_checkpoints' # path1 to save checkpoints
 logs : 'Report_Training/logs' # path1 to save logs
 
-clip_weights : 'Clip_Training/saved_checkpoints/Training_Clip_5e^-5/checkpoint_29_epoch_Training_Clip_5e^-5.pt'
-optimus_weights : 'Report_Training/saved_checkpoints/VAE/checkpoint_99_epoch_VAE-Training-Prova1.pt'
+clip_weights : '/mimer/NOBACKUP/groups/snic2022-5-277/dmolino/Clip_Training/saved_checkpoints/checkpoint_29_epoch_Training_Clip_5e^-5.pt'
+optimus_weights : '/mimer/NOBACKUP/groups/naiss2023-6-336/dmolino/CoDI-Original/Report_Training/saved_checkpoints/VAE/checkpoint_99_epoch_VAE-Training-Prova1.pt'
 
 optimizer:
   params:
