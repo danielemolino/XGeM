@@ -112,7 +112,6 @@ def run_demo():
 
     get_gpu_usage(device)
 
-    """
     df1 = pd.read_csv('csv/test_short_frontal_clean.csv')
     df2 = pd.read_csv('csv/test_short_lateral_clean.csv')
 
@@ -679,7 +678,6 @@ def run_demo():
     plt.savefig(f'plots/L->T+F.png')
     end_time = time.time() - start
     print(f'L->T+F time: {end_time}')
-    """
 
 if __name__ == "__main__":
     run_demo()
