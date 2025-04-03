@@ -15,5 +15,10 @@ To install and set up **MedCoDi-M**, follow these steps:
 
 ```bash
 git clone https://github.com/your-username/MedCoDi-M.git
+```
+```bash
 cd MedCoDi-M
+```
+```bash
 pip install -r requirements.txt
+```
