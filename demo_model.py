@@ -12,7 +12,6 @@ import pandas as pd
 import time
 
 def run_demo():
-    os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
     print(torch.cuda.device_count())
@@ -24,14 +23,12 @@ def run_demo():
                                         pth=model_load_paths,
                                         load_weights=True)
     print('Putting model on device...')
-    get_gpu_usage(device)
     inference_tester.to(device)
-    get_gpu_usage(device)
     print('Model instantiated correctly!')
 
     frontal_xray = './Examples/Frontal.tiff'
     lateral_xray = './Examples/Lateral.tiff'
-    report = 'Focal consolidation at the left lung base, possibly representing aspiration or pneumonia. Central vascular engorgement.'
+    report = 'Minimal bilateral pleural effusions and bibasilar atelectasis.  No evidence for congestive heart failure.'
     
     ########################
     ######## T->F ##########
@@ -66,10 +63,6 @@ def run_demo():
     im = x[0].cpu().numpy()
     plt.imshow(im, cmap='gray')
     plt.savefig(f'Examples/T->F.png')
-
-    get_gpu_usage(device)
-    end_time = time.time() - start
-    print(f'T->F time: {end_time}')
 
     ########################
     ######## F->L ##########
@@ -362,8 +355,6 @@ def run_demo():
         utx = inference_tester.net.clip_encode_text(1 * [""], encode_type='encode_text').to(device)
     conditioning.append(torch.cat([utx, ctx]))
 
-    im = tifffile.imread(path2)
-    im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
     cim = inference_tester.net.clip_encode_vision(im, encode_type='encode_vision').to(device)
     uim = None
     scale = 7.5
@@ -394,51 +385,6 @@ def run_demo():
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'Examples/L+T->F.png')
-
-    ########################
-    ######## T->F+L ########
-    ########################
-    prompt = report
-
-    ctx = inference_tester.net.clip_encode_text(1 * [prompt], encode_type='encode_text').to(device)
-    utx = None
-    scale = 7.5
-    conditioning = []
-    if scale != 1.0:
-        utx = inference_tester.net.clip_encode_text(1 * [""], encode_type='encode_text').to(device)
-    conditioning.append(torch.cat([utx, ctx]))
-
-    shapes = []
-    h, w = [256, 256]
-    shape = [1, 4, h // 8, w // 8]
-    shapes.append(shape)
-    shapes.append(shape)
-
-    z, _ = inference_tester.sampler.sample(
-        steps=50,
-        shape=shapes,
-        condition=conditioning,
-        unconditional_guidance_scale=scale,
-        xtype=['frontal', 'lateral'],
-        condition_types=['text'],
-        eta=1,
-        verbose=False,
-        mix_weight={'lateral': 1, 'text': 1, 'frontal': 1})
-
-    # adesso la passiamo al decoder
-    x = inference_tester.net.autokl_decode(z[0])
-    x = torch.clamp((x[0] + 1.0) / 2.0, min=0.0, max=1.0)
-    im = x[0].cpu().numpy()
-
-    x = inference_tester.net.autokl_decode(z[1])
-    x = torch.clamp((x[0] + 1.0) / 2.0, min=0.0, max=1.0)
-    im2 = x[0].cpu().numpy()
-
-    # facciamo un subplot
-    fig, axs = plt.subExamples(1, 2)
-    axs[0].imshow(im, cmap='gray')
-    axs[1].imshow(im2, cmap='gray')
-    plt.savefig(f'Examples/T->F+L.png')
 
     ########################
     ######## F->T+L ########
@@ -536,17 +482,50 @@ def run_demo():
     plt.imshow(im, cmap='gray')
     plt.savefig(f'Examples/L->T+F.png')
 
+    ########################
+    ######## T->F+L ########
+    ########################
+    prompt = report
+
+    ctx = inference_tester.net.clip_encode_text(1 * [prompt], encode_type='encode_text').to(device)
+    utx = None
+    scale = 7.5
+    conditioning = []
+    if scale != 1.0:
+        utx = inference_tester.net.clip_encode_text(1 * [""], encode_type='encode_text').to(device)
+    conditioning.append(torch.cat([utx, ctx]))
+
+    shapes = []
+    h, w = [256, 256]
+    shape = [1, 4, h // 8, w // 8]
+    shapes.append(shape)
+    shapes.append(shape)
+
+    z, _ = inference_tester.sampler.sample(
+        steps=50,
+        shape=shapes,
+        condition=conditioning,
+        unconditional_guidance_scale=scale,
+        xtype=['frontal', 'lateral'],
+        condition_types=['text'],
+        eta=1,
+        verbose=False,
+        mix_weight={'lateral': 1, 'text': 1, 'frontal': 1})
+
+    # adesso la passiamo al decoder
+    x = inference_tester.net.autokl_decode(z[0])
+    x = torch.clamp((x[0] + 1.0) / 2.0, min=0.0, max=1.0)
+    im = x[0].cpu().numpy()
+
+    x = inference_tester.net.autokl_decode(z[1])
+    x = torch.clamp((x[0] + 1.0) / 2.0, min=0.0, max=1.0)
+    im2 = x[0].cpu().numpy()
+
+    # facciamo un subplot
+    fig, axs = plt.subplots(1, 2)
+    axs[0].imshow(im, cmap='gray')
+    axs[1].imshow(im2, cmap='gray')
+    plt.savefig(f'Examples/T->F+L.png')
+
 if __name__ == "__main__":
     run_demo()
-
-
-
-
-
-
-
-
-
-
-
-
