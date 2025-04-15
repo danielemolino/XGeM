@@ -29,26 +29,18 @@ def run_demo():
     get_gpu_usage(device)
     print('Model instantiated correctly!')
 
-    df1 = pd.read_csv('csv/test_short_frontal_clean.csv')
-    df2 = pd.read_csv('csv/test_short_lateral_clean.csv')
-
-    # campioniamo 5 righe da df1 e 5 da df2
-    df1 = df1.sample(1)
-    df2 = df2.sample(1)
-
+    frontal_xray = ''
+    lateral_xray = ''
+    report = ''
+    
     ########################
     ######## T->F ##########
     ########################
-    # Iniziamo a contare il tempo
-    prompt = df1['report'].values
-    prompt = prompt[0]
-    # 1) Passiamo il prompt al CLIP
+    prompt = report
     ctx = inference_tester.net.clip_encode_text(1 * [prompt], encode_type='encode_text').to(device)
     utx = None
     scale = 7.5
     conditioning = []
-    print('SHAPE:', str(ctx.shape))
-
     if scale != 1.0:
         utx = inference_tester.net.clip_encode_text(1 * [""], encode_type='encode_text').to(device)
     conditioning.append(torch.cat([utx, ctx]))
@@ -57,8 +49,6 @@ def run_demo():
     shapes = []
     shape = [1, 4, h // 8, w // 8]
     shapes.append(shape)
-
-    get_gpu_usage(device)
 
     z, _ = inference_tester.sampler.sample(
         steps=50,
@@ -71,15 +61,9 @@ def run_demo():
         verbose=False,
         mix_weight={'lateral': 1, 'text': 1, 'frontal': 1})
 
-    get_gpu_usage(device)
-
-    # adesso la passiamo al decoder
     x = inference_tester.net.autokl_decode(z[0])
-
     x = torch.clamp((x[0] + 1.0) / 2.0, min=0.0, max=1.0)
     im = x[0].cpu().numpy()
-
-    # mettiamo come titolo il prompt
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/T->F.png')
 
@@ -90,13 +74,7 @@ def run_demo():
     ########################
     ######## F->L ##########
     ########################
-    start = time.time()
-    # carichiamo la frontale
-    path1 = df1['path'].values
-    path1 = path1[0]
-    path1 = '/mimer/NOBACKUP/groups/naiss2023-6-336/dataset_shared/MIMIC/' + path1
-    path1 = path1.replace('.dcm', '.tiff')
-    im = tifffile.imread(path1)
+    im = tifffile.imread(frontal_xray)
     im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
 
     conditioning = []
@@ -123,20 +101,17 @@ def run_demo():
         verbose=False,
         mix_weight={'lateral': 1, 'text': 1, 'frontal': 1})
 
-    # adesso la passiamo al decoder
     x = inference_tester.net.autokl_decode(z[0])
     x = torch.clamp((x[0] + 1.0) / 2.0, min=0.0, max=1.0)
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/F->L.png')
-    end_time = time.time() - start
-    print(f'F->L time: {end_time}')
 
     ########################
     ######## F->T ##########
     ########################
-    start = time.time()
+    im = tifffile.imread(frontal_xray)
     im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
 
     conditioning = []
@@ -170,17 +145,11 @@ def run_demo():
     rec_text = [inference_tester.net.optimus.tokenizer_decoder.decode(a) for a in x]
     rec_text = "".join(rec_text).replace('<BOS>', '').replace('<EOS>', '')
     print(f'Generation F->T: {rec_text}')
-    end_time = time.time() - start
-
+    
     ########################
     ######## L->T ##########
     ########################
-    start = time.time()
-    path2 = df2['path'].values
-    path2 = path2[0]
-    path2 = '/mimer/NOBACKUP/groups/naiss2023-6-336/dataset_shared/MIMIC/' + path2
-    path2 = path2.replace('.dcm', '.tiff')
-    im = tifffile.imread(path2)
+    im = tifffile.imread(lateral_xray)
     im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
 
     conditioning = []
@@ -214,15 +183,12 @@ def run_demo():
     rec_text = [inference_tester.net.optimus.tokenizer_decoder.decode(a) for a in x]
     rec_text = "".join(rec_text).replace('<BOS>', '').replace('<EOS>', '')
     print(f'Generation L->T: {rec_text}')
-    end_time = time.time() - start
-    print(f'L->T time: {end_time}')
-
+    
     ########################
     ######## T->L ##########
     ########################
-    start = time.time()
-    prompt = df2['report'].values
-    prompt = prompt[0]
+    prompt = report
+
     ctx = inference_tester.net.clip_encode_text(1 * [prompt], encode_type='encode_text').to(device)
     utx = None
     scale = 7.5
@@ -255,13 +221,11 @@ def run_demo():
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/T->L.png')
-    end_time = time.time() - start
 
     ########################
     ######## L->F ##########
     ########################
-    start = time.time()
-    im = tifffile.imread(path2)
+    im = tifffile.imread(lateral_xray)
     im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
 
     conditioning = []
@@ -295,15 +259,12 @@ def run_demo():
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/L->F.png')
-    end_time = time.time() - start
 
     ########################
     ######## F+L->T ########
     ########################
-    start = time.time()
-    im1 = tifffile.imread(path1)
-    im2 = tifffile.imread(path2)
-
+    im1 = tifffile.imread(frontal_xray)
+    im2 = tifffile.imread(lateral_xray)
     im1 = torch.tensor(im1, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
     im2 = torch.tensor(im2, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
 
@@ -340,15 +301,14 @@ def run_demo():
     rec_text = [inference_tester.net.optimus.tokenizer_decoder.decode(a) for a in x]
     rec_text = "".join(rec_text).replace('<BOS>', '').replace('<EOS>', '')
     print(f'Generation F+L->T: {rec_text}')
-    end_time = time.time() - start
-    print(f'F+L->T time: {end_time}')
 
     ########################
     ######## F+T->L ########
     ########################
-    start = time.time()
-    prompt = df1['report'].values
-    prompt = prompt[0]
+    prompt = report
+    im = tifffile.imread(frontal_xray)
+    im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
+    
     ctx = inference_tester.net.clip_encode_text(1 * [prompt], encode_type='encode_text').to(device)
     utx = None
     scale = 7.5
@@ -356,9 +316,6 @@ def run_demo():
     if scale != 1.0:
         utx = inference_tester.net.clip_encode_text(1 * [""], encode_type='encode_text').to(device)
     conditioning.append(torch.cat([utx, ctx]))
-
-    im = tifffile.imread(path1)
-    im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
     cim = inference_tester.net.clip_encode_vision(im, encode_type='encode_vision').to(device)
     uim = None
     scale = 7.5
@@ -389,15 +346,14 @@ def run_demo():
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/F+T->L.png')
-    end_time = time.time() - start
-    print(f'F+T->L time: {end_time}')
 
     ########################
     ######## L+T->F ########
     ########################
-    start = time.time()
-    prompt = df2['report'].values
-    prompt = prompt[0]
+    prompt = report
+    im = tifffile.imread(lateral_xray)
+    im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
+    
     ctx = inference_tester.net.clip_encode_text(1 * [prompt], encode_type='encode_text').to(device)
     utx = None
     scale = 7.5
@@ -438,15 +394,12 @@ def run_demo():
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/L+T->F.png')
-    end_time = time.time() - start
-    print(f'L+T->F time: {end_time}')
 
     ########################
     ######## T->F+L ########
     ########################
-    start = time.time()
-    prompt = df1['report'].values
-    prompt = prompt[0]
+    prompt = report
+
     ctx = inference_tester.net.clip_encode_text(1 * [prompt], encode_type='encode_text').to(device)
     utx = None
     scale = 7.5
@@ -487,14 +440,10 @@ def run_demo():
     axs[1].imshow(im2, cmap='gray')
     plt.savefig(f'plots/T->F+L.png')
 
-    end_time = time.time() - start
-    print(f'T->F+L time: {end_time}')
-
     ########################
     ######## F->T+L ########
     ########################
-    start = time.time()
-    im = tifffile.imread(path1)
+    im = tifffile.imread(frontal_xray)
     im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
 
     conditioning = []
@@ -524,7 +473,6 @@ def run_demo():
         verbose=False,
         mix_weight={'lateral': 1, 'text': 1, 'frontal': 1})
 
-    # adesso la passiamo al decoder
     x_b = inference_tester.net.optimus_decode(z[0], max_length=100)
     x = x_b[0]
     x = [a.tolist() for a in x]
@@ -538,14 +486,11 @@ def run_demo():
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/F->T+L.png')
-    end_time = time.time() - start
-    print(f'F->T+L time: {end_time}')
 
     ########################
     ######## L->T+F ########
     ########################
-    start = time.time()
-    im = tifffile.imread(path2)
+    im = tifffile.imread(lateral_xray)
     im = torch.tensor(im, dtype=torch.float32).unsqueeze(0).unsqueeze(0).to(device)
 
     conditioning = []
@@ -590,8 +535,6 @@ def run_demo():
 
     plt.imshow(im, cmap='gray')
     plt.savefig(f'plots/L->T+F.png')
-    end_time = time.time() - start
-    print(f'L->T+F time: {end_time}')
 
 if __name__ == "__main__":
     run_demo()
