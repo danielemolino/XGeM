@@ -25,3 +25,12 @@ cd MedCoDi-M
 ```bash
 pip install -r requirements.txt
 ```
+## Download the Pretrained Weights
+Download the Pretrained weights from '''link''' and place it in the Weights folder.
+
+## Demo Instructions
+To run the demo, execute the `demo_model.py` script.  
+Due to data protection restrictions, real data cannot be shared. Instead, two synthetic images (`Frontal.tiff` and `Lateral.tiff`) are provided in the `Examples` folder.  
+The script performs inference on all possible combinations and saves the generated images in `Examples.tiff`.
+
+
