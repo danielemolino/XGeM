@@ -29,8 +29,8 @@ def run_demo():
     get_gpu_usage(device)
     print('Model instantiated correctly!')
 
-    frontal_xray = ''
-    lateral_xray = ''
+    frontal_xray = './Examples/Frontal.tiff'
+    lateral_xray = './Examples/Lateral.tiff'
     report = 'Focal consolidation at the left lung base, possibly representing aspiration or pneumonia. Central vascular engorgement.'
     
     ########################
@@ -65,7 +65,7 @@ def run_demo():
     x = torch.clamp((x[0] + 1.0) / 2.0, min=0.0, max=1.0)
     im = x[0].cpu().numpy()
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/T->F.png')
+    plt.savefig(f'Examples/T->F.png')
 
     get_gpu_usage(device)
     end_time = time.time() - start
@@ -106,7 +106,7 @@ def run_demo():
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/F->L.png')
+    plt.savefig(f'Examples/F->L.png')
 
     ########################
     ######## F->T ##########
@@ -220,7 +220,7 @@ def run_demo():
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/T->L.png')
+    plt.savefig(f'Examples/T->L.png')
 
     ########################
     ######## L->F ##########
@@ -258,7 +258,7 @@ def run_demo():
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/L->F.png')
+    plt.savefig(f'Examples/L->F.png')
 
     ########################
     ######## F+L->T ########
@@ -345,7 +345,7 @@ def run_demo():
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/F+T->L.png')
+    plt.savefig(f'Examples/F+T->L.png')
 
     ########################
     ######## L+T->F ########
@@ -393,7 +393,7 @@ def run_demo():
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/L+T->F.png')
+    plt.savefig(f'Examples/L+T->F.png')
 
     ########################
     ######## T->F+L ########
@@ -435,10 +435,10 @@ def run_demo():
     im2 = x[0].cpu().numpy()
 
     # facciamo un subplot
-    fig, axs = plt.subplots(1, 2)
+    fig, axs = plt.subExamples(1, 2)
     axs[0].imshow(im, cmap='gray')
     axs[1].imshow(im2, cmap='gray')
-    plt.savefig(f'plots/T->F+L.png')
+    plt.savefig(f'Examples/T->F+L.png')
 
     ########################
     ######## F->T+L ########
@@ -485,7 +485,7 @@ def run_demo():
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/F->T+L.png')
+    plt.savefig(f'Examples/F->T+L.png')
 
     ########################
     ######## L->T+F ########
@@ -534,7 +534,7 @@ def run_demo():
     im = x[0].cpu().numpy()
 
     plt.imshow(im, cmap='gray')
-    plt.savefig(f'plots/L->T+F.png')
+    plt.savefig(f'Examples/L->T+F.png')
 
 if __name__ == "__main__":
     run_demo()
