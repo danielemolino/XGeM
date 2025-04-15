@@ -31,7 +31,7 @@ def run_demo():
 
     frontal_xray = ''
     lateral_xray = ''
-    report = ''
+    report = 'Focal consolidation at the left lung base, possibly representing aspiration or pneumonia. Central vascular engorgement.'
     
     ########################
     ######## T->F ##########
