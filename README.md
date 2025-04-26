@@ -26,7 +26,7 @@ cd MedCoDi-M
 pip install -r requirements.txt
 ```
 ## Download the Pretrained Weights
-Download the Pretrained weights from '''link''' and place it in the Weights folder.
+Download the Pretrained weights from [here](https://unicampus365-my.sharepoint.com/:u:/g/personal/daniele_molino_unicampus_it/EaeJqsDx5RNFhAij-80UGdEBuiMw9DrnVqy7cvEstgUo3w?e=xdVpt0) and place it in the Weights folder.
 
 ## Demo Instructions
 To run the demo, execute the `demo_model.py` script.  
