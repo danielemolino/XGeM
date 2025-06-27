@@ -16,13 +16,13 @@ Artificial Intelligence is revolutionizing medical practice, enhancing diagnosti
 
  
 ## Installation
-To install and set up **MedCoDi-M**, follow these steps:
+To install and set up **XGeM**, follow these steps:
 
 ```bash
-git clone https://github.com/your-username/MedCoDi-M.git
+git clone https://github.com/your-username/XGeM.git
 ```
 ```bash
-cd MedCoDi-M
+cd XGeM
 ```
 ```bash
 pip install -r requirements.txt
