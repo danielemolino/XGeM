@@ -5,7 +5,7 @@
 This repository contains the source code, pre-trained models, and usage instructions for **XGeM**. The goal is to provide an accessible platform for the scientific and clinical community, facilitating the integration of AI models into the diagnostic process.
 
 [![Demo](https://img.shields.io/badge/Demo-View-green)](https://medcodim.unicampus.it/overview)  
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-View-blue)](https://huggingface.co/spaces/dmolino/MedCoDi-M)  
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-View-blue)](https://huggingface.co/spaces/dmolino/XGeM)  
 [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b)](https://arxiv.org/abs/2501.04614)
 
 
