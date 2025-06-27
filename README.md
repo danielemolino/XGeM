@@ -1,4 +1,4 @@
-# MedCoDi-M
+# XGeM
 
 ## Introduction
 **XGeM** (MedicalCoDi-MultiPrompt) is an innovative framework designed to enhance multimodal medical data generation.  
