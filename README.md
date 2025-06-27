@@ -1,7 +1,7 @@
 # XGeM
 
 ## Introduction
-**XGeM** (MedicalCoDi-MultiPrompt) is an innovative framework designed to enhance multimodal medical data generation.  
+**XGeM** is an innovative framework designed to enhance multimodal medical data generation.  
 This repository contains the source code, pre-trained models, and usage instructions for **XGeM**. The goal is to provide an accessible platform for the scientific and clinical community, facilitating the integration of AI models into the diagnostic process.
 
 [![Demo](https://img.shields.io/badge/Demo-View-green)](https://medcodim.unicampus.it/overview)  
