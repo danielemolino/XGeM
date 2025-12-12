@@ -1,271 +1,91 @@
-accelerate==1.5.2
-aiohttp==3.9.5
-aiosignal==1.3.1
-alabaster @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/alabaster/alabaster-0.7.13
-altair==5.4.1
-antlr4-python3-runtime==4.9.3
-appdirs @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/appdirs/appdirs-1.4.4
-asn1crypto @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/asn1crypto/asn1crypto-1.5.1
-asttokens==2.4.1
-atomicwrites @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/atomicwrites/atomicwrites-1.4.1
-attrs @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/attrs/attrs-23.1.0
-audioread==3.0.1
-Babel @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/Babel/Babel-2.12.1
-backports.entry-points-selectable @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/backportsentrypointsselectable/backports.entry_points_selectable-1.2.0
-backports.functools-lru-cache @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/backportsfunctools_lru_cache/backports.functools_lru_cache-1.6.5
-beartype==0.20.2
-beniget @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/beniget/beniget-0.4.1
-bitstring @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/bitstring/bitstring-4.0.2
-blinker==1.8.2
-blist @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/blist/blist-1.3.6
-boto3==1.34.125
-botocore==1.34.125
-Bottleneck @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/Bottleneck/Bottleneck-1.3.7
-CacheControl @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/CacheControl/CacheControl-0.12.14
-cachetools==5.3.3
-cachy @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/cachy/cachy-0.3.0
-certifi @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/certifi/certifi-2023.5.7
-cffi @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/cffi/cffi-1.15.1
-chardet==3.0.4
-charset-normalizer @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/charsetnormalizer/charset-normalizer-3.1.0
-cleo @ file:///apps/sources/p/Python-bundle-PyPI/extensions/cleo-2.0.1-py3-none-any.whl#sha256=6eb133670a3ed1f3b052d53789017b6e50fca66d1287e6e6696285f4cb8ea448
-click @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/click/click-8.1.3
-cloudpickle @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/cloudpickle/cloudpickle-2.2.1
-colorama @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/colorama/colorama-0.4.6
-commonmark @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/commonmark/commonmark-0.9.1
-crashtest @ file:///apps/sources/p/Python-bundle-PyPI/extensions/crashtest-0.4.1-py3-none-any.whl#sha256=8d23eac5fa660409f57472e3851dab7ac18aba459a8d19cbbba86d3d5aecd2a5
-cryptography @ file:///dev/shm/cryptography/41.0.1/GCCcore-12.3.0/cryptography-41.0.1
-Cython @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/Cython/Cython-0.29.35
-deap @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/deap/deap-1.4.0
-debugger==1.3
-decorator @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/decorator/decorator-5.1.1
+accelerate==1.10.1
+aiohappyeyeballs==2.6.1
+aiohttp==3.13.0
+aiosignal==1.4.0
+altair==5.5.0
+annotated-types==0.7.0
+anyio==4.11.0
+attrs==25.4.0
+beartype==0.22.2
+blinker==1.9.0
+cachetools==6.2.0
+certifi==2025.10.5
+charset-normalizer==3.4.3
+click==8.3.0
+colorama==0.4.6
 decord==0.6.0
-distlib @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/distlib/distlib-0.3.6
-distro @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/distro/distro-1.8.0
-docopt @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/docopt/docopt-0.6.2
-docutils @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/docutils/docutils-0.20.1
-doit @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/doit/doit-0.36.0
-dulwich @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/dulwich/dulwich-0.21.5
 easydict==1.13
-ecdsa @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/ecdsa/ecdsa-0.18.0
-editables @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/editables/editables-0.3
-einops==0.8.0
+einops==0.8.1
+einx==0.3.0
 ema-pytorch==0.7.7
-exceptiongroup @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/exceptiongroup/exceptiongroup-1.1.1
-execnet @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/execnet/execnet-1.9.0
-executing==2.0.1
-expecttest @ file:///dev/shm/expecttest/0.1.5/GCCcore-12.3.0/expecttest-0.1.5
-filelock @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/filelock/filelock-3.12.2
-flit_core @ file:///dev/shm/Python/3.11.3/GCCcore-12.3.0/flit_core/flit_core-3.9.0
-frozenlist==1.4.1
-fsspec @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/fsspec/fsspec-2023.6.0
-ftfy==6.2.0
-future @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/future/future-0.18.3
-gast @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/gast/gast-0.5.4
-gensim==4.3.2
-gitdb==4.0.11
-GitPython==3.1.43
-glob2 @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/glob2/glob2-0.7
-gmpy2 @ file:///dev/shm/gmpy2/2.1.5/GCC-12.3.0/gmpy2-2.1.5
-google-api-core==2.19.0
-google-auth==2.30.0
-google-cloud-core==2.4.1
-google-cloud-storage==2.17.0
-google-crc32c==1.5.0
-google-resumable-media==2.7.1
-googleapis-common-protos==1.63.1
-googletrans==3.0.0
-h11==0.9.0
-h2==3.2.0
-hpack==3.0.0
-hstspreload==2024.5.1
-html5lib @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/html5lib/html5lib-1.1
-httpcore==0.9.1
-httpx==0.13.3
-huggingface-hub==0.23.0
-hyperframe==5.2.0
-idna==2.10
-imageio==2.34.1
-imagesize @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/imagesize/imagesize-1.4.1
-importlib-metadata @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/importlib_metadata/importlib_metadata-6.7.0
-importlib-resources @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/importlib_resources/importlib_resources-5.12.0
-info-nce-pytorch==0.1.4
-iniconfig @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/iniconfig/iniconfig-2.0.0
-intervaltree @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/intervaltree/intervaltree-3.1.0
-intreehooks @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/intreehooks/intreehooks-1.0
-ipaddress @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/ipaddress/ipaddress-1.0.23
-jaraco.classes @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/jaracoclasses/jaraco.classes-3.2.3
-jeepney @ file:///apps/sources/p/Python-bundle-PyPI/extensions/jeepney-0.8.0-py3-none-any.whl#sha256=c0a454ad016ca575060802ee4d590dd912e35c122fa04e70306de3d076cce755
-Jinja2 @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/Jinja2/Jinja2-3.1.2
-jmespath==1.0.1
-joblib @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/joblib/joblib-1.2.0
-jsonschema @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/jsonschema/jsonschema-4.17.3
-keyring @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/keyring/keyring-23.13.1
-keyrings.alt @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/keyringsalt/keyrings.alt-4.2.0
-lazy_loader==0.4
-liac-arff @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/liacarff/liac-arff-2.5.0
-librosa==0.10.2
-lightning-utilities==0.11.2
-littleutils==0.2.2
-llvmlite==0.42.0
-lockfile @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/lockfile/lockfile-0.12.2
-markdown-it-py @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/markdownitpy/markdown-it-py-3.0.0
-MarkupSafe @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/MarkupSafe/MarkupSafe-2.1.3
-mdurl @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/mdurl/mdurl-0.1.2
-MedCLIP==0.0.3
-mock @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/mock/mock-5.0.2
-monai==1.4.0
-more-itertools @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/moreitertools/more-itertools-9.1.0
-mpmath @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/mpmath/mpmath-1.3.0
-msgpack @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/msgpack/msgpack-1.0.5
-multidict==6.0.5
-narwhals==1.9.0
-netaddr @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/netaddr/netaddr-0.8.0
-netifaces @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/netifaces/netifaces-0.11.0
-networkx==3.3
+fastapi==0.118.2
+filelock==3.20.0
+frozendict==2.4.6
+frozenlist==1.8.0
+fsspec==2025.9.0
+ftfy==6.3.1
+gitdb==4.0.12
+GitPython==3.1.45
+h11==0.16.0
+huggingface-hub==0.35.3
+idna==3.10
+imagecodecs==2025.8.2
+importlib_resources==6.5.2
+Jinja2==3.1.6
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+lightning-utilities==0.15.2
+MarkupSafe==3.0.3
+mpmath==1.3.0
+multidict==6.7.0
+narwhals==2.7.0
+networkx==3.5
 nibabel==5.3.2
-nltk==3.8.1
-numba==0.59.1
-numexpr @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/numexpr/numexpr-2.8.4
-numpy @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/numpy/numpy-1.25.1
-nvidia-cublas-cu12==12.1.3.1
-nvidia-cuda-cupti-cu12==12.1.105
-nvidia-cuda-nvrtc-cu12==12.1.105
-nvidia-cuda-runtime-cu12==12.1.105
-nvidia-cudnn-cu12==8.9.2.26
-nvidia-cufft-cu12==11.0.2.54
-nvidia-curand-cu12==10.3.2.106
-nvidia-cusolver-cu12==11.4.5.107
-nvidia-cusparse-cu12==12.1.0.106
-nvidia-ml-py3==7.352.0
-nvidia-nccl-cu12==2.20.5
-nvidia-nvjitlink-cu12==12.4.127
-nvidia-nvtx-cu12==12.1.105
-nvidia-smi==0.1.3
-omegaconf==2.3.0
-opencv-python==4.11.0.86
-packaging @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/packaging/packaging-23.1
-pandas @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/pandas/pandas-2.0.3
-pastel @ file:///apps/sources/p/Python-bundle-PyPI/extensions/pastel-0.2.1-py2.py3-none-any.whl#sha256=4349225fcdf6c2bb34d483e523475de5bb04a5c10ef711263452cb37d7dd4364
-pathlib2 @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pathlib2/pathlib2-2.3.7.post1
-pathspec @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pathspec/pathspec-0.11.1
-pbr @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pbr/pbr-5.11.1
-pexpect @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pexpect/pexpect-4.8.0
-Pillow @ file:///dev/shm/Pillow/10.0.0/GCCcore-12.3.0/Pillow-10.0.0
-pkginfo @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pkginfo/pkginfo-1.9.6
-platformdirs @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/platformdirs/platformdirs-3.8.0
-pluggy @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pluggy/pluggy-1.2.0
-ply @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/ply/ply-3.11
-pooch @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pooch/pooch-1.7.0
-pretty-errors==1.2.25
-proto-plus==1.23.0
-protobuf==4.25.3
-psutil @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/psutil/psutil-5.9.5
-ptyprocess @ file:///apps/sources/p/Python-bundle-PyPI/extensions/ptyprocess-0.7.0-py2.py3-none-any.whl#sha256=4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35
-py @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/py/py-1.11.0
-py-expression-eval @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/py_expression_eval/py_expression_eval-0.3.14
-pyarrow==17.0.0
-pyasn1 @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pyasn1/pyasn1-0.5.0
-pyasn1_modules==0.4.0
-pybind11 @ file:///dev/shm/pybind11/2.11.1/GCCcore-12.3.0/pybind11-2.11.1
-pycparser @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pycparser/pycparser-2.21
-pycryptodome @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pycryptodome/pycryptodome-3.18.0
+numpy==2.2.6
+opencv-python==4.12.0.88
+packaging==25.0
+pandas==2.3.3
+pillow==11.3.0
+propcache==0.4.1
+protobuf==6.32.1
+psutil==7.1.0
+pyarrow==21.0.0
+pydantic==2.12.0
+pydantic_core==2.41.1
 pydeck==0.9.1
-pydevtool @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pydevtool/pydevtool-0.3.0
-pydicom==2.4.4
-Pygments @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/Pygments/Pygments-2.15.1
-pylev @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pylev/pylev-1.4.0
-PyNaCl @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/PyNaCl/PyNaCl-1.5.0
-pyparsing @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pyparsing/pyparsing-3.1.0
-pyrsistent @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pyrsistent/pyrsistent-0.19.3
-pytest @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pytest/pytest-7.4.0
-pytest-xdist @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pytestxdist/pytest-xdist-3.3.1
-python-dateutil @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pythondateutil/python-dateutil-2.8.2
-pythran @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/pythran/pythran-0.13.1
-pytoml @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pytoml/pytoml-0.1.21
-pytorch-fid==0.3.0
-pytorch-lightning==2.2.4
-pytorch-transformers==1.2.0
-pytz @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/pytz/pytz-2023.3
-PyYAML==6.0.1
-rapidfuzz @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/rapidfuzz/rapidfuzz-2.15.1
-regex @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/regex/regex-2023.6.3
-requests @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/requests/requests-2.31.0
-requests-toolbelt @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/requeststoolbelt/requests-toolbelt-1.0.0
-rfc3986==1.5.0
-rich @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/rich/rich-13.4.2
-rich-click @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/richclick/rich-click-1.6.1
-rsa==4.9
-s3transfer==0.10.1
-sacremoses==0.1.1
-safetensors==0.4.3
-scandir @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/scandir/scandir-1.10.0
-scikit-image==0.23.2
-scikit-learn==1.4.2
-scipy==1.11.1
-SecretStorage @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/SecretStorage/SecretStorage-3.3.3
-semantic-version @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/semantic_version/semantic_version-2.10.0
-sentencepiece==0.2.0
-setuptools-scm @ file:///dev/shm/Python/3.11.3/GCCcore-12.3.0/setuptools_scm/setuptools_scm-7.1.0
-shellingham @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/shellingham/shellingham-1.5.0.post1
-simplegeneric @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/simplegeneric/simplegeneric-0.8.1
-simplejson @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/simplejson/simplejson-3.19.1
-six @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/six/six-1.16.0
-smart-open==7.0.4
-smmap==5.0.1
+pydicom==3.0.1
+python-dateutil==2.9.0.post0
+python-multipart==0.0.20
+pytorch-lightning==2.5.5
+pytz==2025.2
+PyYAML==6.0.3
+referencing==0.36.2
+regex==2025.9.18
+requests==2.32.5
+rpds-py==0.27.1
+safetensors==0.6.2
+six==1.17.0
+smmap==5.0.2
 sniffio==1.3.1
-snowballstemmer @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/snowballstemmer/snowballstemmer-2.2.0
-sorcery==0.2.2
-sortedcontainers @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sortedcontainers/sortedcontainers-2.4.0
-soundfile==0.12.1
-soxr==0.3.7
-Sphinx @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/Sphinx/Sphinx-7.0.1
-sphinx-bootstrap-theme @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxbootstraptheme/sphinx-bootstrap-theme-0.8.1
-sphinxcontrib-applehelp @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxcontribapplehelp/sphinxcontrib-applehelp-1.0.4
-sphinxcontrib-devhelp @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxcontribdevhelp/sphinxcontrib-devhelp-1.0.2
-sphinxcontrib-htmlhelp @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxcontribhtmlhelp/sphinxcontrib-htmlhelp-2.0.1
-sphinxcontrib-jsmath @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxcontribjsmath/sphinxcontrib-jsmath-1.0.1
-sphinxcontrib-qthelp @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxcontribqthelp/sphinxcontrib-qthelp-1.0.3
-sphinxcontrib-serializinghtml @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxcontribserializinghtml/sphinxcontrib-serializinghtml-1.1.5
-sphinxcontrib-websupport @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/sphinxcontribwebsupport/sphinxcontrib-websupport-1.2.4
-streamlit==1.39.0
-sympy==1.12
-tabulate @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/tabulate/tabulate-0.9.0
-tenacity==9.0.0
-textaugment==2.0.0
-textblob==0.18.0.post0
-threadpoolctl @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/threadpoolctl/threadpoolctl-3.1.0
-tifffile==2024.5.10
-timm==0.9.16
+starlette==0.48.0
+streamlit==1.50.0
+sympy==1.14.0
+tenacity==9.1.2
+tifffile==2025.10.4
 tokenizers==0.13.3
-toml @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/toml/toml-0.10.2
-tomli @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/tomli/tomli-2.0.1
-tomli_w @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/tomli_w/tomli_w-1.0.0
-tomlkit @ file:///apps/sources/p/Python-bundle-PyPI/extensions/tomlkit-0.11.8-py3-none-any.whl#sha256=8c726c4c202bdb148667835f68d68780b9a003a9ec34167b6c673b38eff2a171
-torch==2.3.0
-torchaudio==2.3.0
-torchlibrosa==0.1.0
-torchmetrics==1.4.0
-torchvision==0.18.0
-torchxrayvision==1.2.3
-tornado==6.4.1
-tqdm==4.66.4
-transformers==4.24.0
-triton==2.3.0
-typing_extensions==4.12.1
-tzdata @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/tzdata/tzdata-2023.3
-ujson @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/ujson/ujson-5.8.0
-urllib3 @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/urllib3/urllib3-1.26.16
-vector-quantize-pytorch==1.1.2
-versioneer @ file:///dev/shm/SciPybundle/2023.07/gfbf-2023a/versioneer/versioneer-0.29
-virtualenv @ file:///dev/shm/virtualenv/20.23.1/GCCcore-12.3.0/virtualenv/virtualenv-20.23.1
-watchdog==5.0.3
-wcwidth==0.2.13
-webencodings @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/webencodings/webencodings-0.5.1
-wget==3.2
-wrapt==1.16.0
-xlrd @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/xlrd/xlrd-2.0.1
-yarl==1.9.4
-z3-solver @ file:///dev/shm/Z3/4.12.2/GCCcore-12.3.0/z3solver/z3-solver-4.12.2.0
-zipfile36 @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/zipfile36/zipfile36-0.1.3
-zipp @ file:///dev/shm/PythonbundlePyPI/2023.06/GCCcore-12.3.0/zipp/zipp-3.15.0
+toml==0.10.2
+torch==2.8.0
+torchmetrics==1.8.2
+torchvision==0.23.0
+tornado==6.5.2
+tqdm==4.67.1
+transformers==4.26.0
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+tzdata==2025.2
+urllib3==2.5.0
+uvicorn==0.37.0
+vector-quantize-pytorch==1.23.2
+watchdog==6.0.0
+wcwidth==0.2.14
+yarl==1.22.0
