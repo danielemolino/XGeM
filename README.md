@@ -19,7 +19,7 @@ Artificial Intelligence is revolutionizing medical practice, enhancing diagnosti
 To install and set up **XGeM**, follow these steps:
 
 ```bash
-git clone https://github.com/your-username/XGeM.git
+git clone https://github.com/cosbidev/XGeM.git
 ```
 ```bash
 cd XGeM
